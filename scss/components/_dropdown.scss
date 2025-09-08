@@ -1,0 +1,131 @@
+@use "../ab";
+
+.dropdown{
+    position: absolute;
+    left: 0;
+    padding-top: 59px;
+    width: min(1240px, 100%);
+    display: none;
+    
+    &__inner{
+        position: relative;
+        padding: 30px;
+        min-height: min(582px, 100vh - 158px);
+        border-radius: 20px;
+        background: var(--menu-navbar-bg);
+        box-shadow: 0 40px 90px 20px var(--menu-navbar-shadow);
+        
+
+        &::before{
+            position: absolute;
+            content: url(../../assets/icon/dropdown.svg);
+            top: -18px;
+            margin-left: var(--arrow-left-pos);
+            filter: var(--menu-navbar-muiten-color);
+            transform: translateX(-50%);
+        }
+    }
+}
+
+.top-menu{
+    position: relative;
+    height: 100%;
+
+    &__main{
+        width: 293px;
+        height: 100%;
+        border-right: 1px solid #D2D1D6 ;
+    }
+}
+
+.menu-columns {
+    display: flex;
+    gap: 14px;
+
+    + .menu-columns{
+        margin-top: 23px;
+    }
+
+    &__icon{
+        position: relative;
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
+
+        @include ab.breakpoint (xl){
+            display: none;
+        }
+    }
+
+    &__icon-1{
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+    }
+
+    &__icon-2{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+    }
+
+    &__content{
+        flex: 1;
+    }
+
+    
+
+    &__heading{
+        color: var(--sub-menu-title);
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.5;
+        margin-top: 4px;
+    }
+
+    &__list{
+        display: grid;
+        grid-template-columns: 1fr;
+        margin-top: 19px;
+    }
+
+    &__item{
+        &--active .sub-menu,
+        &:hover .sub-menu {
+           display: grid;
+        }
+    }
+
+    &__item--active > &__link,  
+    &__item:hover > &__link{
+            color: #0071DC;
+            font-weight: 500;
+    }
+
+    &__link {
+        display: block;
+        padding: 7px 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42; 
+    }
+}
+
+.sub-menu{
+    position: absolute;
+    inset: 0 0 0 292px;
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    padding-left: 30px;
+    transition: 0.5s;
+
+    &--not-main{
+        position: initial;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        padding-left: 0;
+    }
+}

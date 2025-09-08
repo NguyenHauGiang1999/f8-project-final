@@ -1,3 +1,4 @@
+
 *, ::before, ::after{
     box-sizing: border-box;
 }
@@ -9,4 +10,22 @@ html{
 body{
     font-size: 1.6rem;
     font-family: Gordita, sans-serif;
+    color:var(--text-color);
+    background: var(--body-bg-mobile);
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input, textarea, select{
+    font-family: inherit;
+    color: inherit;
+    border: none;
+    outline: none;
+}
+
+.icon {
+    filter: var(--icon-color);
 }

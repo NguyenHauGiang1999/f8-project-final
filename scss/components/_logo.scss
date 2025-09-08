@@ -1,0 +1,34 @@
+@use "../ab";
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    width: 190px;
+
+
+    @include ab.breakpoint(lg) {
+        gap: 10px;
+    }
+
+    &__img{
+        @include ab.breakpoint(lg) {
+        width: 24px;
+    }
+    }
+
+    &__title{
+        font-family: Gordita;
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 1.45;
+        min-width: 144px;
+
+        @include ab.breakpoint(lg) {
+            font-size: 1.8rem;
+        }
+    }
+
+    
+}
